@@ -5,6 +5,8 @@
  */
 package llenarMostrar_Vector;
 
+import java.util.Scanner;
+
 /*
  * Llenar un vector
  * Imprimir o mostrar un vector
@@ -15,28 +17,41 @@ package llenarMostrar_Vector;
  * @author Felix Castro
  */
 
-import javax.swing.*;
+//import javax.swing.*;
 public class llenImprVec {
     public static void main(String[] args) {
-        int tamVec;//tamaño del vector o cantidad de elementos
+        //leer datos del teclado
+        Scanner entrada = new Scanner(System.in);
         
-        //solicitamos el tamano del vector
-        tamVec = Integer.parseInt(JOptionPane.showInputDialog("Ingresa el tamaño"
-                + " del vector"));
+        //variables
+        int notas[];
+        int nElem;
+        int num;
         
-        //definimos el vector
-        int vec[] = new int[tamVec];
+        //numero de elementos
+        System.out.println("Ingrese la cantidad de elemento para el vector");
+        nElem = entrada.nextInt();
         
-        //llenamos el vector
-        JOptionPane.showMessageDialog(null, "Ingrese lo elementos del vector");
-        for (int i = 0; i < tamVec; i++) {
-            vec[i] = Integer.parseInt(JOptionPane.showInputDialog((i+1)+""
-                    + ". Digite un numero"));
+        //vector notas
+        notas = new int[nElem];
+        
+        //ingresamos un numero
+        System.out.println("Ingrese un numero");
+        num = entrada.nextInt();
+        
+        //validamos que num sea < nelem
+        if (num <= nElem) {
+            for (int i = 0; i < num; i++) {
+                System.out.println("Ingrese el numero "+(i+1));
+                notas[i] = entrada.nextInt();
+            }
+        } else {
+            System.out.println("Error");
         }
         
-        //imprimir elementos del/o vector
-        for (int i = 0; i < tamVec; i++) {
-            System.out.println(vec[i]+" ");
+        System.out.println("Notas");
+        for (int i = 0; i < nElem; i++) {
+            System.out.println(notas[i]);
         }
     }
 }
